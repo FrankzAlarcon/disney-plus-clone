@@ -1,0 +1,39 @@
+p {
+  color: var(--font-color);
+}
+.movies-container {
+  width: 100%;
+  min-height: 24rem;
+}
+.movies-container:last-child {
+  margin-bottom: 4rem;
+}
+.movies {
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  overflow-x: scroll;
+}
+
+@media(min-width: 768px){
+  .movies {
+    flex-wrap: wrap;
+    overflow-x: unset;
+    justify-content: center;
+  }
+  .movies-container {
+    width: 100%;
+    max-width: 70rem;
+    margin: 0 auto 2rem auto;
+  }
+}
+@media(min-width: 880px){
+  .movies-container {
+    max-width: 90rem;
+  }
+}
+@media(min-width: 1024px){
+  .movies-container {
+    max-width: 1200px;
+  }
+}

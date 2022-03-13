@@ -1,0 +1,13 @@
+.companies {
+  margin: 3rem auto 2rem auto;
+  display: flex;
+  justify-content: left;
+  gap: 2rem;
+  overflow-x: scroll;
+}
+@media(min-width: 710px){
+    .companies {
+      overflow-x: unset;
+      justify-content: center;
+    }
+}

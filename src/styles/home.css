@@ -1,0 +1,15 @@
+body {
+  background: url('../images/background/home-background.png');
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.home {
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+.carousel-styles {
+  width: 100%;
+  max-width: 65rem;
+  margin: 0 auto;
+}
