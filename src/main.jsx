@@ -10,7 +10,10 @@ import '@styles/index.css';
 
 const composedEnhancer = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-const store = createStore(rootReducer, composedEnhancer(applyMiddleware(thunk, logAction)));
+const store = createStore(
+  rootReducer,
+  composedEnhancer(applyMiddleware(thunk, logAction)),
+);
 
 ReactDOM.render(
   <React.StrictMode>

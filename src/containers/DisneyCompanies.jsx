@@ -18,8 +18,8 @@ function DisneyCompanies() {
       <CompanyCard image={disneyLogo} video={disneyVideo} />
       <CompanyCard image={pixarLogo} video={pixarVideo} />
       <CompanyCard image={marvelLogo} video={marvelVideo} />
-      <CompanyCard image={nationalLogo} video={starwarsVideo} />
-      <CompanyCard image={starWarsLogo} video={nationalGeographicVideo} />
+      <CompanyCard image={starWarsLogo} video={starwarsVideo} />
+      <CompanyCard image={nationalLogo} video={nationalGeographicVideo} />
     </div>
   );
 }

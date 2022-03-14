@@ -6,11 +6,7 @@
 // y devulve otra funcion que recibe como parametro la info del dispatch, es decir,
 // un objeto con el action y el payload {action: '', payload: ''}
 export const logAction = (store) => (next) => (info) => {
-  if (typeof info.payload === 'boolean') {
-    console.log('store', store.getState());
-    console.log('dispatch', info);
-  } else {
-    console.log('no es boolean');
-  }
+  // console.log('store', store.getState());
+  console.log('dispatch', info);
   next(info);
 };
