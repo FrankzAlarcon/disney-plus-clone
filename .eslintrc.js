@@ -25,6 +25,8 @@ module.exports = {
     'react/prop-types': 'off',
     'jsx-a11y/anchor-is-valid': 'warn',
     'react/no-array-index-key': 'warn',
+    'default-param-last': 'off',
+    'no-unused-vars': 'warn',
   },
   settings: {
     'import/resolver': {

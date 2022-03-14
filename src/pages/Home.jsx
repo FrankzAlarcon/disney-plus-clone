@@ -3,11 +3,15 @@ import Carousel from 'react-bootstrap/Carousel';
 import DisneyCompanies from '@containers/DisneyCompanies';
 import { MovieCard } from '@components/MovieCard';
 import MoviesContainer from '@containers/MoviesContainer';
+import { useDispatch } from 'react-redux';
+import { setIsLoading } from '../redux/actions/actions';
 import '@styles/home.css';
 
 function Home() {
   const array = new Array(4).fill('');
   const array2 = new Array(20).fill('');
+  const dispatch = useDispatch();
+  dispatch(setIsLoading(true));
   return (
     <div className="home">
       <Carousel className="carousel-styles" fade indicators={false}>
