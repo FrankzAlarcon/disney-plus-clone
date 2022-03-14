@@ -8,6 +8,11 @@ p {
 .movies-container:last-child {
   margin-bottom: 4rem;
 }
+.movies-container p {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2rem;
+}
 .movies {
   width: 100%;
   display: flex;

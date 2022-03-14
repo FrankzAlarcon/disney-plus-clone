@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import Placeholder from 'react-bootstrap/Placeholder';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 import DisneyCompanies from '@containers/DisneyCompanies';
 import { MovieCard } from '@components/MovieCard';
 import MoviesContainer from '@containers/MoviesContainer';
@@ -9,27 +9,23 @@ import { getMovies } from '@actions/actions';
 import '@styles/home.css';
 
 function Home() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getMovies());
-  }, []);
   const {
     popularMovies, mostRatedMovies, upcomingMovies, nowPlayingMovies,
   } = useSelector((state) => state.movies);
   const { loading } = useSelector((state) => state.ui);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (popularMovies.length > 0 && mostRatedMovies.length > 0
+      && upcomingMovies.length > 0 && nowPlayingMovies.length > 0) {
+      return;
+    }
+    dispatch(getMovies());
+  }, []);
   return (
     loading ? (
-      <>
-        <Placeholder as="p" animation="glow">
-          <Placeholder xs={12} />
-        </Placeholder>
-        <Placeholder as="p" animation="glow">
-          <Placeholder xs={12} />
-        </Placeholder>
-        <Placeholder as="p" animation="glow">
-          <Placeholder xs={12} />
-        </Placeholder>
-      </>
+      <div className="loading">
+        <ProgressBar animated now={99} label="99%" style={{ height: '100%', fontSize: '2rem' }} />
+      </div>
     ) : (
       <div className="home">
         <Carousel className="carousel-styles" fade indicators={false}>
@@ -38,6 +34,9 @@ function Home() {
               return (
                 <Carousel.Item key={`now-playing-${item.id}`}>
                   <img className="d-block w-100" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt={item.title} />
+                  <Carousel.Caption>
+                    <h3>{item.title}</h3>
+                  </Carousel.Caption>
                 </Carousel.Item>
               );
             }

@@ -8,8 +8,22 @@ body {
   margin-top: 2rem;
   padding: 0 1rem;
 }
+.home h3 {
+  display: inline-block;
+  padding: 0 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: aliceblue;
+  border: 2px solid rgb(61, 47, 29);
+  border-radius: .5rem;
+}
 .carousel-styles {
   width: 100%;
   max-width: 65rem;
   margin: 0 auto;
+}
+.loading {
+  width: 80%;
+  margin: 4rem auto;
+  height: 4rem;
 }

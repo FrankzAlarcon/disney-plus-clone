@@ -30,7 +30,7 @@ export const setError = (payload) => ({
   type: actionTypes.setError,
   payload,
 });
-export const getMovies = () => async (dispatch) => {
+export const getMovies = () => (dispatch) => {
   try {
     dispatch(setIsLoading(true));
     Promise.all([
