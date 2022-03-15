@@ -1,21 +1,26 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { getMovieDetails } from '@actions/actions';
+import { getMovieDetails, getTrailersMovie, setTrailersMovie } from '@actions/actions';
 import { useParams } from 'react-router-dom';
 import playBlackIcon from '@images/play-black.png';
 import playWhiteIcon from '@images/play-white.png';
 import '@styles/movieDetails.css';
 import Button from '@components/Button';
+import Video from '../components/Video';
 
 function MovieDetails() {
   const { id } = useParams();
-  const movieDetails = useSelector((state) => state.movies.movieDetails);
-  const loading = useSelector((state) => state.ui.loading);
+  const { movieDetails, trailersMovie } = useSelector((state) => state.movies);
+  const { loading, loadingTrailers } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setTrailersMovie([]));
     dispatch(getMovieDetails(id));
   }, []);
+  const showTrailers = (movieId) => {
+    dispatch(getTrailersMovie(movieId));
+  };
   return (
     loading ? (
       <div className="loading">
@@ -37,8 +42,8 @@ function MovieDetails() {
             <p>{movieDetails.overview}</p>
           </div>
           <div className="buttons-section">
-            <Button text="play" image={playBlackIcon} image2={playWhiteIcon} />
-            <Button text="trailers" image={playBlackIcon} image2={playWhiteIcon} />
+            <Button text="play" image={playBlackIcon} image2={playWhiteIcon} onClick={() => showTrailers(id)} />
+            <Button text="trailers" image={playBlackIcon} image2={playWhiteIcon} onClick={() => showTrailers(id)} />
           </div>
           <p className="hide-title-bottom movie-details-title">
             {movieDetails.title}
@@ -52,6 +57,19 @@ function MovieDetails() {
             <p>{movieDetails.overview}</p>
           </div>
         </section>
+        {!loading
+            && (
+            <div className="videos-container">
+              {trailersMovie
+                .map((trailer) => (
+                  <Video
+                    key={trailer.id}
+                    video={trailer.key}
+                    title={trailer.name}
+                  />
+                ))}
+            </div>
+            )}
       </div>
     )
   );

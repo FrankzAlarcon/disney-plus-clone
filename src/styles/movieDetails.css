@@ -43,6 +43,10 @@
 .hide-title-top {
   display: none;
 }
+.videos-container {
+  width: calc(100% - 2rem);
+  margin: 0 auto;
+}
 @media(min-width: 880px){
   .movie-details {
     max-width: 140rem;
@@ -51,6 +55,13 @@
     margin: 1.5rem auto;
     align-items: center;
     gap: 2rem;
+  }
+  .videos-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
   }
   .movie-details-info {
     width: 90%;
