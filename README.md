@@ -4,7 +4,7 @@ It was created to practice ReactJS and React-Redux, I used Redux-Thunk to make a
 ### Code Features
 
 - React project template using [ViteJS](https://vitejs.dev/guide/ "ViteJS")
-- Created using ReactJS y Redux.
+- Created using ReactJS, React router dom y Redux.
 - Asynchronous requests with Redux Thunk
 - A little bit of react-bootstrap
 - Eslint is used as a linter
