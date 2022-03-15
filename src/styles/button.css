@@ -1,0 +1,19 @@
+.details-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  padding: .5rem;
+  border: 1px solid var(--font-color);
+  background-color: black;
+  border-radius: .5rem;
+  text-transform: uppercase;
+  color: var(--font-color);
+  transition: .5s ease;
+}
+.details-button:hover {
+  background-color: var(--font-color);
+  color: black;
+  border: 1px solid black;
+
+}

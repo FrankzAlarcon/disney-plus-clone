@@ -45,13 +45,13 @@ function Home() {
         </Carousel>
         <DisneyCompanies />
         <MoviesContainer title="Popular Movies">
-          {popularMovies.map((item) => <MovieCard key={`popular-${item.id}`} image={item.poster_path} alt={item.title} />)}
+          {popularMovies.map((item) => <MovieCard key={`popular-${item.id}`} image={item.poster_path} alt={item.title} id={item.id} />)}
         </MoviesContainer>
         <MoviesContainer title="Most Rated Movies">
-          {mostRatedMovies.map((item) => <MovieCard key={`most-rated-${item.id}`} image={item.poster_path} alt={item.title} />)}
+          {mostRatedMovies.map((item) => <MovieCard key={`most-rated-${item.id}`} image={item.poster_path} alt={item.title} id={item.id} />)}
         </MoviesContainer>
         <MoviesContainer title="Upcoming Movies">
-          {upcomingMovies.map((item) => <MovieCard key={`upcoming-${item.id}`} image={item.poster_path} alt={item.title} />)}
+          {upcomingMovies.map((item) => <MovieCard key={`upcoming-${item.id}`} image={item.poster_path} alt={item.title} id={item.id} />)}
         </MoviesContainer>
       </div>
     )

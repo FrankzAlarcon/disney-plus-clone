@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '@styles/movieCarrd.css';
 
-function MovieCard({ image, alt }) {
+function MovieCard({ image, alt, id }) {
+  const param = alt.toLowerCase().split(' ').join('-');
   return (
     <div className="movie-card">
-      <Link to={`details/${0}`}>
+      <Link to={`/details/${id}`}>
         <img src={`https://image.tmdb.org/t/p/original/${image}`} alt={alt} loading="lazy" />
       </Link>
     </div>
