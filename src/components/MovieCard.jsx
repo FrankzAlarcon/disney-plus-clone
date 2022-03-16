@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '@styles/movieCarrd.css';
 
 function MovieCard({ image, alt, id }) {
-  const param = alt.toLowerCase().split(' ').join('-');
   return (
     <div className="movie-card">
       <Link to={`/details/${id}`}>

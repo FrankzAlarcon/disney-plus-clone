@@ -1,0 +1,49 @@
+.search-container {
+  width: 100%;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+.movies-container {
+  margin-left: .5rem;
+}
+.search-container span {
+  padding-left: .5rem;
+}
+.search-container p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+.search-container label {
+  width: 100%;
+}
+.search-container input[type='text'] {
+  width: calc(100% - 5rem);
+  height: 3.5rem;
+  border-radius: .5rem;
+  outline: none;
+  padding-left: .5rem;
+  border: none;
+  box-shadow: 0px 1.5px 5px rgba(256, 256, 256, 0.5);
+  font-family: var(--secondary-font);
+  margin-bottom: 1rem;
+}
+.search-container button {
+  border: 1px solid var(--font-color);
+  border-radius: 50%;
+  background-color: black;
+  margin-left: .5rem;
+  padding: .1rem;
+}
+.search-container img {
+  width: 3rem;
+}
+
+.only-movies, .only-series, .all {
+  color: var(--font-color);
+  margin-bottom: .5rem;
+}
+.only-series  {
+  padding-bottom: .5rem;
+  border-bottom: 1px solid #e1e1e1;
+}

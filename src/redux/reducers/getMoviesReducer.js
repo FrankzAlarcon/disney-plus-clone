@@ -7,6 +7,7 @@ const initialState = {
   nowPlayingMovies: [],
   movieDetails: [],
   trailersMovie: [],
+  moviesSearched: [],
 };
 
 export const getMoviesReducer = (state = initialState, action) => {
@@ -23,6 +24,8 @@ export const getMoviesReducer = (state = initialState, action) => {
       return { ...state, movieDetails: { ...action.payload } };
     case actionTypes.setTrailersMovie:
       return { ...state, trailersMovie: [...action.payload] };
+    case actionTypes.setMoviesSearched:
+      return { ...state, moviesSearched: [...action.payload] };
     default: return { ...state };
   }
 };

@@ -20,7 +20,7 @@ function Header() {
       </Link>
       <nav className="nav-bar">
         <NavButton text="home" image={homeIcon} to="/home" />
-        <NavButton text="search" image={searchIcon} to="/home" />
+        <NavButton text="search" image={searchIcon} to="/search" />
         <NavButton text="movies" image={moviesIcon} to="/movies" />
         <NavButton text="series" image={seriesIcon} to="/series" />
         <div className="hide">

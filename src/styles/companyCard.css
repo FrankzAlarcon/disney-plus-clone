@@ -10,7 +10,7 @@
   transition: .3s ease;
 }
 .company-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 .company-card img {
   width: 100%;
@@ -28,5 +28,8 @@
 @media(min-width: 768px){
   .company-card {
     width: 20rem;
+  }
+  .company-card:hover {
+    transform: scale(1.1);
   }
 }

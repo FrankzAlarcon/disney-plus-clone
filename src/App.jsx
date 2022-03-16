@@ -10,6 +10,7 @@ import Series from '@pages/Series';
 import WatchList from '@pages/WatchList';
 import MovieDetails from '@pages/MovieDetails';
 import Header from '@containers/Header';
+import Search from '@pages/Search';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Navigate to="/home" />} />
         <Route exact path="/home" element={<Home />} />
+        <Route exact path="/search" element={<Search />} />
         <Route exact path="/details/:id" element={<MovieDetails />} />
         <Route exact path="/movies" element={<Movies />} />
         <Route exact path="/originals" element={<Originals />} />
