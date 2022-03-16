@@ -57,7 +57,7 @@ function MovieDetails() {
             <p>{movieDetails.overview}</p>
           </div>
         </section>
-        {!loading
+        {!loadingTrailers
             && (
             <div className="videos-container">
               {trailersMovie
