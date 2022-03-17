@@ -4,9 +4,9 @@ import { setValueSearcher, getSearchedMovies } from '@actions/actions';
 
 function Searcher({ image }) {
   const dispatch = useDispatch();
-  const searcherValue = useSelector((state) => state.searcher.value);
+  const { value: searcherValue, filter } = useSelector((state) => state.searcher);
   const getMovies = () => {
-    dispatch((getSearchedMovies(searcherValue)));
+    dispatch((getSearchedMovies(searcherValue, filter)));
   };
   return (
     <label htmlFor="searcher">

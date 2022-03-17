@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPopularMovies } from '@actions/actions';
+import {
+  getPopularMovies, setMoviesSearched, setShowData, setFilter,
+} from '@actions/actions';
 import { MovieCard } from '@components/MovieCard';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import SearchContainer from '@containers/SearchContainer';
@@ -8,9 +10,13 @@ import MoviesContainer from '@containers/MoviesContainer';
 
 function Search() {
   const { popularMovies, moviesSearched } = useSelector((state) => state.movies);
+  const valueSearched = useSelector((state) => state.searcher.value);
   const { loading, showData } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setShowData(false));
+    dispatch(setFilter('all'));
+    dispatch(setMoviesSearched([]));
     if (popularMovies.length === 0) {
       dispatch(getPopularMovies());
     }
@@ -26,10 +32,16 @@ function Search() {
         <div className="movies-container">
           {
             showData && (
-              <MoviesContainer title="popular movies">
+              <MoviesContainer title={`Resultados para: ${valueSearched}`}>
                 {
                 moviesSearched.map((item) => (
-                  <MovieCard key={item.id} image={item.poster_path} alt={item.title} id={item.id} />
+                  <MovieCard
+                    key={item.id}
+                    image={item.poster_path}
+                    alt={item.title}
+                    id={item.id}
+                    firstAirDate={item.first_air_date}
+                  />
                 ))
                 }
               </MoviesContainer>

@@ -48,6 +48,14 @@
   margin: 0 auto;
   margin-bottom: 5rem;
 }
+.no-movies-message {
+  font-size: 2rem;
+  color: rgb(255, 97, 97);
+  font-weight: bold;
+  background-color: var(--font-color);
+  border-radius: .5rem;
+  text-align: center;
+}
 @media(min-width: 880px){
   .movie-details {
     max-width: 140rem;
@@ -69,6 +77,7 @@
   }
   .movie-details .movie-details-image {
     max-width: 70rem;
+    max-height: 35rem;
   }
   .movie-details-title {
     font-size: 3rem;

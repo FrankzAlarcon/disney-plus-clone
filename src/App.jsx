@@ -11,6 +11,7 @@ import WatchList from '@pages/WatchList';
 import MovieDetails from '@pages/MovieDetails';
 import Header from '@containers/Header';
 import Search from '@pages/Search';
+import SerieDetails from '@pages/SerieDetails';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
         <Route exact path="/" element={<Navigate to="/home" />} />
         <Route exact path="/home" element={<Home />} />
         <Route exact path="/search" element={<Search />} />
-        <Route exact path="/details/:id" element={<MovieDetails />} />
+        <Route exact path="/details/movie/:id" element={<MovieDetails />} />
+        <Route exact path="/details/serie/:id" element={<SerieDetails />} />
         <Route exact path="/movies" element={<Movies />} />
         <Route exact path="/originals" element={<Originals />} />
         <Route exact path="/series" element={<Series />} />
