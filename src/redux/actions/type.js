@@ -10,4 +10,6 @@ export const actionTypes = {
   setLoadingTrailers: 'SET_LOADING_TRAILERS',
   setShowData: 'SET_SHOW_DATA',
   setError: 'SET_ERROR',
+  setValueSearcher: 'SET_VALUE_SEARCHER',
+  setFilter: 'SET_FILTER',
 };

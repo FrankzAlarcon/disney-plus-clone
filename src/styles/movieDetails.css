@@ -46,6 +46,7 @@
 .videos-container {
   width: calc(100% - 2rem);
   margin: 0 auto;
+  margin-bottom: 5rem;
 }
 @media(min-width: 880px){
   .movie-details {

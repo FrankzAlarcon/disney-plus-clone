@@ -16,7 +16,7 @@ export const uiReducer = (state = initialState, action) => {
     case actionTypes.setError:
       return { ...state, error: action.payload };
     case actionTypes.setShowData:
-      return { ...state, error: action.payload };
+      return { ...state, showData: action.payload };
     default: return { ...state };
   }
 };
