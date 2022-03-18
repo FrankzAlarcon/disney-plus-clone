@@ -1,0 +1,36 @@
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.pagination-container button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: .3rem;
+  font-size: 2rem;
+  text-align: center;
+  vertical-align: center;
+  background-color: var(--font-color);
+  font-family: var(--secondary-font);
+}
+.pagination-container select {
+  width: 5rem;
+  height: 3rem;
+  text-align:  center;
+}
+.pagination-container button:disabled {
+  opacity: .7;
+}
+@media(min-width: 768px){
+  .pagination-container button {
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+  }
+  .pagination-container select {
+    width: 8rem;
+    height: 5rem;
+    font-size: 3rem;
+  }
+}

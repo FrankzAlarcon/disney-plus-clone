@@ -3,6 +3,7 @@ export const actionTypes = {
   setMostRatedMovies: 'SET_MOST_RATED_MOVIES',
   setUpcomingMovies: 'SET_UPCOMING_MOVIES',
   setNowPlayingMovies: 'SET_NOW_PLAYING_MOVIES',
+  setMovies: 'SET_MOVIES',
   setMovieDetails: 'SET_MOVIE_DETAILS',
   setTrailersMovie: 'SET_TRAILERS_MOVIE',
   setMoviesSearched: 'SET_MOVIES_SEARCHED',

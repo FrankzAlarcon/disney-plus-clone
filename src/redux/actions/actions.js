@@ -29,6 +29,10 @@ export const setNowPlayingMovies = (payload) => ({
   type: actionTypes.setNowPlayingMovies,
   payload,
 });
+export const setMovies = (payload) => ({
+  type: actionTypes.setMovies,
+  payload,
+});
 export const setMovieDetails = (payload) => ({
   type: actionTypes.setMovieDetails,
   payload,
@@ -106,7 +110,7 @@ export const getNowPlayingMovies = (page) => (dispatch) => {
     dispatch(setIsLoading(true));
     getMovieList(NOW_PLAYING_MOVIES_URL(page))
       .then((data) => {
-        console.log(data);
+        dispatch(setMovies(data));
         dispatch(setIsLoading(false));
       });
   } catch (error) {
@@ -143,16 +147,13 @@ export const getSerieDetail = (id) => (dispatch) => {
 
 export const getTrailersMovie = (id) => (dispatch) => {
   try {
-    // dispatch(setLoadingTrailers(true));
     getMovieList(TRAILERS_MOVIE(id))
       .then((data) => {
         dispatch(setTrailersMovie(data.results));
-        // dispatch(setLoadingTrailers(false));
         dispatch(setShowData(true));
       });
   } catch (error) {
     dispatch(setError(error));
-    // dispatch(setLoadingTrailers(false));
   }
 };
 export const getTrailersTvShow = (id) => (dispatch) => {
