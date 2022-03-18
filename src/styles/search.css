@@ -51,4 +51,7 @@
   .movies-container {
     margin-left: auto;
   }
+  .search-container {
+    max-width: 75rem;
+  }
 }
