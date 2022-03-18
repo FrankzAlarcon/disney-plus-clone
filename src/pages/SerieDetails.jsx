@@ -79,7 +79,7 @@ function MovieDetails() {
                   <p className="no-movies-message">
                     There are not trailers for
                     {' '}
-                    {movieDetails.title}
+                    {movieDetails.name}
                   </p>
                 )
               }

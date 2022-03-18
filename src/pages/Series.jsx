@@ -1,8 +1,11 @@
 import React from 'react';
+import MoviesContainer from '@containers/MoviesContainer';
 
 function Series() {
   return (
-    <div>Series</div>
+    <div className="series-page-container">
+      <MoviesContainer title="Series" />
+    </div>
   );
 }
 
