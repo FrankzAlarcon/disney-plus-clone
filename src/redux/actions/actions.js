@@ -6,8 +6,9 @@ const MOST_RATED_MOVIES_URL = `https://api.themoviedb.org/3/movie/top_rated?api_
 const UPCOMING_MOVIES_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=1`;
 const NOW_PLAYING_MOVIES_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=1`;
 const MOVIE_DETAILS = (id) => `https://api.themoviedb.org/3/movie/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`;
-const TV_SHOW_DETAILS = (id) => `https://api.themoviedb.org/3/tv/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`;
 const TRAILERS_MOVIE = (id) => `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`;
+const TV_SHOW_DETAILS = (id) => `https://api.themoviedb.org/3/tv/${id}?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`;
+const TRAILERS_TV_SHOW = (id) => `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`;
 const SEARCHED_ALL = (query, page = 1) => `https://api.themoviedb.org/3/search/multi?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`;
 const SEARCHED_MOVIES = (query) => `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
 const SEARCHED_TV_SHOWS = (query) => `https://api.themoviedb.org/3/search/tv?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=1&query=${query}&include_adult=false`;
@@ -106,16 +107,19 @@ export const getMovieDetails = (id) => (dispatch) => {
     dispatch(setIsLoading(true));
     getMovieList(MOVIE_DETAILS(id))
       .then((data) => {
-        // if (Object.keys(data).includes('success')) {
-        //   getMovieList(TV_SHOW_DETAILS(id))
-        //     .then((dataTv) => {
-        //       dataTv.title = dataTv.name;
-        //       dataTv.release_date = dataTv.first_air_date;
-        //       dispatch(setMovieDetails(dataTv));
-        //       dispatch(setIsLoading(false));
-        //     });
-        //   return;
-        // }
+        dispatch(setMovieDetails(data));
+        dispatch(setIsLoading(false));
+      });
+  } catch (error) {
+    dispatch(setError(error));
+    dispatch(setIsLoading(false));
+  }
+};
+export const getSerieDetail = (id) => (dispatch) => {
+  try {
+    dispatch(setIsLoading(true));
+    getMovieList(TV_SHOW_DETAILS(id))
+      .then((data) => {
         dispatch(setMovieDetails(data));
         dispatch(setIsLoading(false));
       });
@@ -139,7 +143,17 @@ export const getTrailersMovie = (id) => (dispatch) => {
     // dispatch(setLoadingTrailers(false));
   }
 };
-
+export const getTrailersTvShow = (id) => (dispatch) => {
+  try {
+    getMovieList(TRAILERS_TV_SHOW(id))
+      .then((data) => {
+        dispatch(setTrailersMovie(data.results));
+        dispatch(setShowData(true));
+      });
+  } catch (error) {
+    dispatch(setError(error));
+  }
+};
 export const getSearchedMovies = (query, filter) => (dispatch) => {
   try {
     if (query) {

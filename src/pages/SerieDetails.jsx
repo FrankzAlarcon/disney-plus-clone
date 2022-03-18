@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import {
-  getMovieDetails, getTrailersMovie, setTrailersMovie, setShowData,
+  getSerieDetail, setTrailersMovie, setShowData,
+  getTrailersTvShow,
 } from '@actions/actions';
 import { useParams } from 'react-router-dom';
 import playBlackIcon from '@images/play-black.png';
@@ -20,10 +21,10 @@ function MovieDetails() {
   useEffect(() => {
     dispatch(setShowData(false));
     dispatch(setTrailersMovie([]));
-    dispatch(getMovieDetails(id));
+    dispatch(getSerieDetail(id));
   }, []);
   const showTrailers = (movieId) => {
-    dispatch(getTrailersMovie(movieId));
+    dispatch(getTrailersTvShow(movieId));
   };
   return (
     loading ? (
@@ -35,9 +36,9 @@ function MovieDetails() {
         <img className="movie-details-image" src={movieDetails.backdrop_path ? `https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}` : ImageNotFound} alt={movieDetails.title} />
         <section className="movie-details-info">
           <p className="hide-title-top movie-details-title">
-            {movieDetails.title}
+            {movieDetails.name}
             {' '}
-            <span className="movie-details-date">{`(${movieDetails.release_date})`}</span>
+            <span className="movie-details-date">{`(${movieDetails.first_air_date})`}</span>
           </p>
           <div className="hide-title-top movie-details-genres-container">
             {movieDetails.genres?.map((genre) => <span key={genre.id} className="movie-genre">{genre.name}</span>)}
@@ -50,9 +51,9 @@ function MovieDetails() {
             <Button text="trailers" image={playBlackIcon} image2={playWhiteIcon} onClick={() => showTrailers(id)} />
           </div>
           <p className="hide-title-bottom movie-details-title">
-            {movieDetails.title}
+            {movieDetails.name}
             {' '}
-            <span className="movie-details-date">{`(${movieDetails.release_date})`}</span>
+            <span className="movie-details-date">{`(${movieDetails.first_air_date})`}</span>
           </p>
           <div className="hide-title-bottom movie-details-genres-container">
             {movieDetails.genres?.map((genre) => <span key={genre.id} className="movie-genre">{genre.name}</span>)}
