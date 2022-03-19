@@ -9,6 +9,7 @@ const initialState = {
   trailersMovie: [],
   moviesSearched: [],
   moviesInfo: {},
+  seriesInfo: {},
 };
 
 export const getMoviesReducer = (state = initialState, action) => {
@@ -29,6 +30,8 @@ export const getMoviesReducer = (state = initialState, action) => {
       return { ...state, moviesSearched: [...action.payload] };
     case actionTypes.setMovies:
       return { ...state, moviesInfo: { ...action.payload } };
+    case actionTypes.setSeries:
+      return { ...state, seriesInfo: { ...action.payload } };
     default: return { ...state };
   }
 };

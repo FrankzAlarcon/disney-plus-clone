@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import MoviesContainer from '@containers/MoviesContainer';
 import { getNowPlayingMovies } from '@actions/actions';
 import { MovieCard } from '@components/MovieCard';
-import Pagination from '../components/Pagination';
+import Pagination from '@components/Pagination';
 import '@styles/movies.css';
 
 function Movies() {
@@ -23,7 +23,7 @@ function Movies() {
           ))
         }
       </MoviesContainer>
-      <Pagination totalPages={moviesInfo.total_pages} />
+      <Pagination totalPages={moviesInfo.total_pages} getDataAction={getNowPlayingMovies} />
     </div>
   );
 }

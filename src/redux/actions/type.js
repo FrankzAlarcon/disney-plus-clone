@@ -7,6 +7,7 @@ export const actionTypes = {
   setMovieDetails: 'SET_MOVIE_DETAILS',
   setTrailersMovie: 'SET_TRAILERS_MOVIE',
   setMoviesSearched: 'SET_MOVIES_SEARCHED',
+  setSeries: 'SET_SERIES',
   setIsLoading: 'SET_IS_LOADING',
   setLoadingTrailers: 'SET_LOADING_TRAILERS',
   setShowData: 'SET_SHOW_DATA',
