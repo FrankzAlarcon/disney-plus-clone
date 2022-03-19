@@ -32,7 +32,7 @@ function Pagination({ totalPages = 1, getDataAction }) {
       <label htmlFor="options">
         <select ref={selectOp} defaultValue={currentPage} id="options" onChange={(e) => selectPage(e.target.value)}>
           {
-            pages.map((number, index) => <option>{index + 1}</option>)
+            pages.map((number, index) => <option key={index}>{index + 1}</option>)
           }
         </select>
       </label>

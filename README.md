@@ -1,4 +1,4 @@
-# Disney+ Clone
+# SPA: Disney+ Clone
 It was created to practice ReactJS and React-Redux, I used Redux-Thunk to make asynchronous requests to [The Movie DatabaseAPI](https://developers.themoviedb.org/3/getting-started/introduction "The Movie Database API")
 
 You can see the project here: [click me](https://disney-plus-clone-frankz.netlify.app/ "click me")

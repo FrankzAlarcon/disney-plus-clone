@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { rootReducer } from '@reducers/rootReducer';
-import { logAction } from './redux/middlewares/middlewares';
+// import { logAction } from './redux/middlewares/middlewares';
 import App from './App';
 import '@styles/index.css';
 
@@ -12,7 +12,7 @@ const composedEnhancer = (typeof window !== 'undefined' && window.__REDUX_DEVTOO
 
 const store = createStore(
   rootReducer,
-  composedEnhancer(applyMiddleware(thunk, logAction)),
+  composedEnhancer(applyMiddleware(thunk)),
 );
 
 ReactDOM.render(
